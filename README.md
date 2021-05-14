@@ -1,14 +1,14 @@
 # C# WPF desktop app to demonstarate usage of GitHub CI/CD Action workflow and CodeQL alerts
 
 1. Cloned sample project from https://github.com/microsoft/github-actions-for-desktop-apps 
-2. Generated self-signed signing certificate.Added BASE64_ENCODED_PFX and PFX_KEY to the repository secrets.
+2. Generated self-signed signing certificate. Added BASE64_ENCODED_PFX and PFX_KEY to the repository secrets. See below the steps.
 3. Added CI action workflow from the sample. The workflow targets multiple platforms and different configurations. It includes the following steps: build, test, package, sign and upload package artifacts.
-4. Tested CI workflow with the certificate, excluding a publish step. The workflow targets multiple platforms and different configurations.
+4. Tested CI workflow with the certificate, excluding the publish step. 
 5. From Security tab selected 'Code scanning alerts' and added a default WPF 'CodeQL Analysis' workflow.
 6. CodeQL scan with default workflow failed.
 7. Modified CodeQL workflow to include custom build steps.
 
-Sertificate generationg and encodding in Powershell:
+Certificate generating and encoding in Powershell:
 1. Generate
 New-SelfSignedCertificate -Type CodeSigningCert -Subject "CN=GE CA, 0=GE, C=US" -TextExtension @("2.5.29.19={text}false") -KeyUsage DigitalSignature -KeyLength 2048 -NotAfter (Get-Date).AddMonths(33) -FriendlyName GitHubActionsDemo
 
