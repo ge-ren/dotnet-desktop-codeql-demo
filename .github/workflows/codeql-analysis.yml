@@ -2,7 +2,7 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ Zina-420001498-patch-1 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   #schedule:
