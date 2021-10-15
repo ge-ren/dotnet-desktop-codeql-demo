@@ -21,3 +21,4 @@ $pfx_cert = Get-Content '.\GitHubActionsDemo.pfx' -Encoding Byte
 Open the output file, SigningCertificate_Encoded.txt, and copy the string inside. 
 Add the string to the repo as a GitHub secret and name it "Base64_Encoded_Pfx."
 Add the signing certificate password to the repo as a secret and name it "Pfx_Key"
+
